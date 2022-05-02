@@ -1,0 +1,33 @@
+REPS = 101 101
+#set REPs to other start/end ranges to run more replicats - rep number = random seed
+
+
+VAR = WORLD	WORLD-worldType
+VAR = DPS	OPTIMIZER_DRIFTPOOLLOD-driftPoolSize
+VAR = PDR	OPTIMIZER_DRIFTPOOLLOD-poolDecayRate
+VAR = DMODE	OPTIMIZER_DRIFTPOOLLOD-decayMode
+
+CONDITIONS = WORLD=NKLandscape DMODE=GlobalMax,PopMax,PopProp DPS=0,2,4,8,16,32,64,128,256,512,1024 PDR=0.001,0.002,0.005,0.01,0.02,0.05,0.1,0.2,0.5,1.0
+
+# loading settings files to set pop size to 1024
+SETTINGS = settings.cfg,settings_organism.cfg,settings_world.cfg
+
+-----
+
+# JOBNAME will be appended before condition (C*) identifier - if "NONE" then job will have not JOBNAME
+JOBNAME = NK_
+
+# EXECUTABLE is the name of program to run, may include a path
+EXECUTABLE = ./mabe
+#EXECUTABLE = mabe.exe
+
+-----
+# comma separate the mail type list ex: FAIL,END,REQUEUE
+
+# HPCC (not used for indefinite mode)
+HPCC_PARAMETERS = #SBATCH --constraint="[intel14|intel16|intel18]"
+HPCC_PARAMETERS = #SBATCH --ntasks=1
+HPCC_PARAMETERS = #SBATCH --cpus-per-task=1
+HPCC_PARAMETERS = #SBATCH --time=03:55:00  #WARNING indefinite requires 03:51:00 or greater
+HPCC_PARAMETERS = #SBATCH --mem=2G
+HPCC_PARAMETERS = #SBATCH --mail-type=FAIL

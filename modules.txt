@@ -1,0 +1,38 @@
+% World
+  - Logic16
+  - NBack
+  - BlockCatch
+  - Test
+  - PathFollow
+  + SawGenes
+  - TPM_GENERATOR
+  * NKLandscape
+  - Berry
+
+% Genome
+  * Circular
+  - Multi
+
+% Archivist
+  - SSwD
+  * LODwAP
+
+% Brain
+  - Wire
+  + CGP
+  - Markov
+  - LSTM
+  - BiLog
+  - ANN
+  - RNN
+  - Human
+  - ConstantValues
+
+% Optimizer
+  - DriftPoolRoulette
+  - Islands
+  - Lexicase
+  - Roulette
+  - Tournament
+  * DriftPoolLOD
+

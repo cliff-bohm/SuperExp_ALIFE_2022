@@ -1,0 +1,6 @@
+option(enable_World_NKLandscape "Enable Module NKLandscapeWorld" ON)
+if (enable_World_NKLandscape)
+  register_module(World NKLandscape)
+  target_sources(${EXE} PRIVATE ${CMAKE_CURRENT_LIST_DIR}/NKLandscapeWorld.cpp)
+  target_sources(${EXE} PRIVATE ${CMAKE_CURRENT_LIST_DIR}/NKLandscapeWorld.h)
+endif()

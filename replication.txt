@@ -1,0 +1,44 @@
+Replication Instructions
+
+1) install requiered software
+	visit https://github.com/Hintzelab/MABE/wiki
+	follow instructions in: Installation and quick start
+ 
+	This will go through the process of installing MABE and all requierments. 
+	You don't need to compile MABE, but it's not going to hurt, and will make you farmiliar with the process.
+ 
+2) download this repository
+
+3) build MABE
+ a) navigate to the main level of the downloaded repository (here you should see modules.txt, and
+    the tools and code directories along with some other files and directories)
+ 
+ b) from the command line, run 'sh tools/setup.cmd'
+	this will get the correct version of mbuild for your operating system
+	
+ c) from the command line run './mbuild' (or ./mbuild.exe if on windows)
+	this will build MABE with the requiered modules
+	
+ d) run 'cp work/mabe run_NK/.'
+    run 'cp work/mabe run_saw_4/.'
+    run 'cp work/mabe run_saw_5/.'
+    run 'cp work/mabe run_saw_6/.'
+    run 'cp work/mabe run_saw_7/.'
+    ** on windows, mabe will be called "mabe.exe"
+	
+4) run experiments
+ a) cd into the fitness function you are interested in running (run_NK, run_saw_4, run_saw_5, run_saw_6, or run_saw_7)
+ 
+ b) from the command line run 'python ../tools/mq.py'
+	you should see some output that says that many jobs will be run, for all combinations of "SEP size" and "decay rate"
+	
+ c) run 'python ../tools/mq.py -l'
+    WARNING!! the default settings result in may conditions and this may take a long time.
+	this will run the jobs using random seed 101 for each
+	the results will be in labeled directories
+	each condition directory will contain the reps run for the condition, and each rep directory will contain the data files.
+	
+	you can run different random seeds / reps and chnage the conditions to be run by editing mq_conditions.txt
+	
+	
+ d) for more on running MABE and using mq see https://github.com/Hintzelab/MABE/wiki 
